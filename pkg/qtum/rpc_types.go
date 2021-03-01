@@ -505,7 +505,7 @@ func (resp *DecodedRawTransactionResponse) ExtractContractInfo() (_ ContractInfo
 
 				UserInput: callInfo.CallData,
 			}
-			return info, true, errors.New("contract parsing partially implemented")
+			return info, true, nil
 
 		case "OP_CREATE":
 			// OP_CALL with OP_SENDER has the script type "create_sender"
@@ -532,7 +532,7 @@ func (resp *DecodedRawTransactionResponse) ExtractContractInfo() (_ ContractInfo
 
 		case "OP_SPEND":
 			// TODO: complete
-			return ContractInfo{}, true, errors.New("contract parsing partially implemented")
+			return ContractInfo{}, true, errors.New("OP_SPEND contract parsing partially implemented")
 		}
 	}
 
